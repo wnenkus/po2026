@@ -1,6 +1,7 @@
-public class Choinkainput {
+package agh.po.lab1;
+public class Choinka {
 	public static void main(String[] args) {
-		for(int i = 0; i <=args[0]; i++){
+		for(int i = 0; i<10; i++){
 			System.out.println("*".repeat(i));
 		}
 	}	
