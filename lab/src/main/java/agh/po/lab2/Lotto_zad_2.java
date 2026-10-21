@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.*;
 
 public class Lotto_zad_2 {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         ArrayList<Integer> typy = new ArrayList<Integer>();
         for(String arg : args) {
             typy.add(Integer.parseInt(arg));

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Lotto_zad_1 {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         ArrayList<Integer> lista = new ArrayList<Integer>();
         Random losowa = new Random();
         while(lista.size() < 6) {
