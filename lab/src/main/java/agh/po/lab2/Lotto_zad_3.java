@@ -9,20 +9,14 @@ public class Lotto_zad_3 {
         for (String arg : args) {
             typy.add(Integer.parseInt(arg));
         }
-        if (typy.isEmpty()) {
-            for (int i = 1; i <= 6; i++) {
-                typy.add(i);
-            }
-        }
 
         Random losowa = new Random();
         long start = System.currentTimeMillis();
         long liczbaLosowan = 0;
-        int trafienia = 0;
 
-        while (trafienia < 6) {
-
-            ArrayList<Integer> lista = new ArrayList<>();
+        ArrayList<Integer> lista = new ArrayList<>();
+        do {
+            lista.clear();
             while (lista.size() < 6) {
                 int liczba = losowa.nextInt(49) + 1;
                 if (!lista.contains(liczba)) {
@@ -30,16 +24,11 @@ public class Lotto_zad_3 {
                 }
             }
             liczbaLosowan++;
-
-
-            ArrayList<Integer> wspolne = new ArrayList<>(lista);
-            wspolne.retainAll(typy);
-            trafienia = wspolne.size();
-        }
+        } while (!lista.containsAll(typy));
 
         long czas = System.currentTimeMillis() - start;
-        System.out.println("Twoje typy: " + typy);
-        System.out.println("Liczba losowań do trafienia 6/6: " + liczbaLosowan);
+        System.out.println("typy: " + typy);
+        System.out.println("Liczba losowań: " + liczbaLosowan);
         System.out.println("Czas działania: " + czas + " ms");
     }
 }
