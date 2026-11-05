@@ -1,5 +1,6 @@
 package agh.po.lab3;
-
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -35,4 +36,40 @@ public class CodingBatTest {
         assertEquals("b", cb.withoutEnd2("abc"));
         assertEquals("", cb.withoutEnd2("ab"));
     }
+    @Test
+    public void mapAB_1() {
+        Map<String, String> map = new HashMap<>(Map.of("a", "Hi", "b", "There"));
+        Map<String, String> expected = Map.of("a", "Hi", "b", "There", "ab", "HiThere");
+        assertEquals(expected, cb.mapAB(map));
+    }
+
+    @Test
+    public void mapAB_2() {
+        Map<String, String> map = new HashMap<>(Map.of("a", "Hi"));
+        assertEquals(Map.of("a", "Hi"), cb.mapAB(map));
+    }
+
+    @Test
+    public void mapAB_3() {
+        Map<String, String> map = new HashMap<>(Map.of("b", "There"));
+        assertEquals(Map.of("b", "There"), cb.mapAB(map));
+    }
+    @Test
+    public void wordLen_1() {
+        assertEquals(Map.of("a", 1, "bb", 2),
+                cb.wordLen(new String[]{"a", "bb", "a", "bb"}));
+    }
+
+    @Test
+    public void wordLen_2() {
+        assertEquals(Map.of("this", 4, "and", 3, "that", 4),
+                cb.wordLen(new String[]{"this", "and", "that", "and"}));
+    }
+
+    @Test
+    public void wordLen_3() {
+        assertEquals(Map.of("code", 4, "bug", 3),
+                cb.wordLen(new String[]{"code", "code", "code", "bug"}));
+    }
+
 }

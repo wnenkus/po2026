@@ -1,6 +1,7 @@
 package agh.po.lab3;
 import java.util.ArrayList;
-
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class CodingBat {
@@ -31,6 +32,19 @@ public class CodingBat {
         }
         return str.substring(1, str.length() - 1);
     }
+    public Map<String, String> mapAB(Map<String, String> map) {
+        if (map.containsKey("a") && map.containsKey("b")) {
+            map.put("ab", map.get("a") + map.get("b"));
+        }
+        return map;
+    }
+    public Map<String, Integer> wordLen(String[] strings) {
+        Map<String, Integer> map = new HashMap<>();
+        for (String s : strings) {
+            map.put(s, s.length());
+        }
+        return map;
+    }
 
 
     public static void main(String[] args) {
@@ -48,6 +62,21 @@ public class CodingBat {
         System.out.println(("firstLast6([1, 2, 6]) = " + cb.firstLast6(new int[]{1,2,6})));
 
         System.out.println(cb.withoutEnd2("Hello"));
+
+        Map<String, String> m1 = new HashMap<>(Map.of("a", "Hi", "b", "There"));
+        System.out.println(cb.mapAB(m1));
+
+        Map<String, String> m2 = new HashMap<>(Map.of("a", "Hi"));
+        System.out.println(cb.mapAB(m2));
+
+        Map<String, String> m3 = new HashMap<>(Map.of("b", "There"));
+        System.out.println(cb.mapAB(m3));
+
+
+        System.out.println(cb.wordLen(new String[]{"a", "bb", "a", "bb"}));
+        System.out.println(cb.wordLen(new String[]{"this", "and", "that", "and"}));
+        System.out.println(cb.wordLen(new String[]{"code", "code", "code", "bug"}));
+
 
     }
 }
